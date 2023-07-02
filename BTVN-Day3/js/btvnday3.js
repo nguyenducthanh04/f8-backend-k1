@@ -40,7 +40,6 @@ for (var i = a; i <= b; i++) {
     }
   }
 console.log(`Tổng số lẻ là: ${oddTotal}`);
-
 //Bài tập 4
  function getPrime() {
     if(n === 1)
