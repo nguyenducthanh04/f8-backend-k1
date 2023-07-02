@@ -6,7 +6,7 @@ if(soKm <= 1) {
       price = soKm * 15000;
 }
 else {
-      if(1 < soKm <= 5) {
+      if(soKm > 1 && soKm <= 5) {
             price = 1 * 15000 + (soKm - 1) * 13500;
       }
       else {
@@ -26,16 +26,16 @@ if(sokWh <= 50) {
    price = sokWh * 1678;
 }
 else 
-      if(50 < sokWh <= 100 ) {
+      if(sokWh > 50 && sokWh <= 100) {
             price = 50 * 1678 + (sokWh - 50) * 1734;
       }
-else if(100 < sokWh <= 200) {
+else if(sokWh > 100 && sokWh <= 200) {
       price = 50 * 1678 + 50 * 1734 + (sokWh - 100) * 2014;
 }
-else if(200 < sokWh <= 300) {
+else if(sokWh > 200 && sokWh <= 300) {
       price = 50 * 1678 + 50 * 1734 + 100 * 2014 + (sokWh - 200) * 2536;
 }
-else if(300 < sokWh <= 400) {
+else if(sokWh > 300 && sokWh <= 400) {
       price = 50 * 1678 + 50 * 1734 + 100 * 2014 + 100 * 2536 + (sokWh - 300) * 2834;
 }
 else {
