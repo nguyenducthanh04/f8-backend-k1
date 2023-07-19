@@ -68,7 +68,7 @@ function handleLogin(email, password) {
   this.email = email;
   this.password = password;
 
-  let result = data.filter(function (user) {
+  const result = data.filter(function (user) {
     return user.email === email && user.password === password;
   });
 
