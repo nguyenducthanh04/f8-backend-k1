@@ -20,27 +20,27 @@ try {
 
 //Bai 2
 
-//Callback
-// function openFile(fn) {
-//    setTimeout(() => {
-//     console.log('File đã được mở');
-//     fn();
-//    }, 2000);
-// };
-// function readFile(fn) {
-//     setTimeout(() => {
-//         console.log('F8 - Học lập trình để đi làm');
-//         fn();
-//        }, 1000);
-// };
-// function closeFile() {
-//     setTimeout(() => {
-//         console.log('File đã đóng');
-//     }, 1000);
-// }
-// const run = openFile(() => readFile(() => closeFile() ));
+Callback
+function openFile(fn) {
+   setTimeout(() => {
+    console.log('File đã được mở');
+    fn();
+   }, 2000);
+};
+function readFile(fn) {
+    setTimeout(() => {
+        console.log('F8 - Học lập trình để đi làm');
+        fn();
+       }, 1000);
+};
+function closeFile() {
+    setTimeout(() => {
+        console.log('File đã đóng');
+    }, 1000);
+}
+const run = openFile(() => readFile(() => closeFile() ));
 
-//Promise
+// Promise
 
 function openFile() {
     return new Promise(function(resolve){
