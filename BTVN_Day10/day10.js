@@ -20,7 +20,7 @@ try {
 
 //Bai 2
 
-Callback
+// Callback
 function openFile(fn) {
    setTimeout(() => {
     console.log('File đã được mở');
