@@ -7,7 +7,7 @@ Tham khảo API sau để hoàn thiện: https://shrtco.de/docs */
 const url = `https://www.youtube.com/watch?v=WICgZPU3YoM`;
 const api = `https://api.shrtco.de/v2/shorten?url=`;
 
-const getShorten = async function (link) {
+const getShortUrl = async function (link) {
   try {
     const response = await fetch(`${api}${link}`);
     const data = await response.json();
@@ -17,4 +17,4 @@ const getShorten = async function (link) {
   }
 };
 
-getShorten(url);
+getShortUrl(url);
