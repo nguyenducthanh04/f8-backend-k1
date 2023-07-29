@@ -11,7 +11,7 @@ const getShortUrl = async function (link) {
   try {
     const response = await fetch(`${api}${link}`);
     const data = await response.json();
-    console.log(data.result.short_link);
+    console.log(`Link sau khi rút gọn: `, data.result.short_link);
   } catch (e) {
     console.log(e);
   }
