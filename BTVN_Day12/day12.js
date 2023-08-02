@@ -35,8 +35,8 @@ console.log(convertTime(888666655544));
 
 const startDate = new Date("2020-01-01");
 const endDate = new Date("2020-01-22");
-const distanceDay = function (startDate, endDate) {
+const getDay = function (startDate, endDate) {
   let mls = endDate.getTime() - startDate.getTime();
   return mls / 1000 / 60 / 60 / 24;
 };
-console.log(distanceDay(startDate, endDate));
+console.log(getDay(startDate, endDate));
