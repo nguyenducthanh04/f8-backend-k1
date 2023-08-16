@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login by Thanh</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css" />
+    <style>
+      h1 {
+        color: red;
+      }
+      form {
+        text-align: center;
+        justify-content: center;
+        margin-top: 170px;
+      }
+      input {
+        width: 400px;
+        height: 30px;
+        border-radius: 6px;
+      }
+      .inputEmail {
+        margin-bottom: 12px;
+      }
+      button {
+        width: 130px;
+        height: 30px;
+        margin-top: 20px;
+        border-radius: 6px;
+      }
+      body {
+        background-color: darkgray;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="POST">
+      <h1>Nhập thông tin của bạn</h1>
+      <p><%= errorMessage %></p>
+      <div>
+        <input
+          class="inputEmail"
+          type="text"
+          name="email"
+          placeholder="Vui lòng nhập Email"
+        />
+      </div>
+      <div>
+        <input
+          class="inputPass"
+          type="text"
+          name="password"
+          placeholder="Vui lòng nhập PassWord"
+        />
+      </div>
+      <button type="submit">Enter</button>
+    </form>
+  </body>
+</html>
