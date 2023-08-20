@@ -1,0 +1,5 @@
+<h1>DANH SÁCH XE HƠI</h1>
+<% if(cars?.length) { cars.forEach(({name, price}) => { %>
+<h3><%= name %></h3>
+<h4><%= price %></h4>
+<% }) } %>
