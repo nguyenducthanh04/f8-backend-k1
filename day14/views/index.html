@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTP Check</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/public/assets/style.css"> -->
+  </head>
+  <style>
+    body {
+      text-align: center;
+      background-image: url(https://png.pngtree.com/background/20230516/original/pngtree-street-lined-with-houses-japan-is-a-beautiful-place-picture-image_2617603.jpg);
+      background-size: 100%;
+    }
+    button {
+      width: 100px;
+      height: 20px;
+      border-radius: 5px;
+      margin-top: 10px;
+      color: #fff;
+      background-color: darkgreen;
+    }
+    input {
+      width: 200px;
+      height: 20px;
+      background-color: 5px;
+      margin-top: 250px;
+    }
+  </style>
+  <body>
+    <form action="" method="post">
+      <div>
+        <input
+          type="text"
+          name="phone"
+          placeholder="Nhập số của bạn..."
+          value="{old.phone}"
+        /><br />
+        <button type="submit">SUBMIT</button>
+      </div>
+      <span class="error">{error.name}</span>
+    </form>
+  </body>
+</html>

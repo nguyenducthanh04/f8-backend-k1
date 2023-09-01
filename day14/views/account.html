@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+      background-image: url(https://antimatter.vn/wp-content/uploads/2022/05/hinh-nen-phong-canh-mua-xuan-dep.jpg);
+      background-size: 100%;
+    }
+    button {
+      color: #fff;
+      background-color: deeppink;
+      border-radius: 5px;
+    }
+    input {
+      width: 200px;
+      height: 20px;
+    }
+    .content {
+      margin-top: 250px;
+    }
+  </style>
+
+  <body>
+    <div class="content">
+      <form action="" method="post">
+        <span class="span1">{account.phone}</span><br /><br />
+        <span class="span2">{error.name}</span>
+        <div>
+          <input
+            type="text"
+            name="otp"
+            placeholder="Mã OTP của bạn"
+          /><br /><br />
+        </div>
+        <div>
+          <button type="submit">SUBMIT</button>
+          <a href="/">
+            <button type="submit">Back</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
