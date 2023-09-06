@@ -527,26 +527,26 @@ WHERE
   use database03_ducthanhnguyen;
 
 SELECT
-  DP.Ma_Dat_Phong,
-  DP.Ma_Phong_id,
-  P.Loai_Phong,
-  P.So_Khach_Toi_Da,
-  P.Gia_Phong,
-  DP.Ma_KH_id,
-  KH.Ten_KH,
-  KH.So_DT,
-  DP.Ngay_Dat,
-  DP.Gio_Bat_Dau,
-  DP.Gio_Ket_Thuc,
-  CTDV.Ma_DV_id,
-  CTDV.So_Luong,
-  DV.Don_Gia
+  dp.Ma_Dat_Phong,
+  p.Ma_Phong,
+  p.Loai_Phong,
+  p.So_Khach_Toi_Da,
+  p.Gia_Phong,
+  kh.Ma_KH,
+  kh.Ten_KH,
+  kh.So_DT,
+  dp.Ngay_Dat,
+  dp.Gio_Bat_Dau,
+  dp.Gio_Ket_Thuc,
+  dv.Ma_DV,
+  ctsd.So_Luong,
+  dv.Don_Gia
 FROM
-  dat_phong AS DP
-  JOIN phong AS P ON DP.Ma_Phong_id = P.Ma_Phong_id
-  JOIN khach_hang AS kh ON DP.Ma_KH_id = KH.Ma_KH_id
-  JOIN chi_tiet_du_dung_dv AS CTDV ON DP.Ma_Dat_Phong_id = CTDV.Ma_Dat_Phong_id
-  JOIN dich_vu_di_kem AS DV ON CTDV.Ma_DV_id = DV.Ma_DV_id
+  dat_phong AS dp
+  INNER JOIN phong AS p ON dp.Ma_Phong = p.Ma_Phong
+  INNER JOIN khach_hang AS kh ON dp.Ma_KH = kh.Ma_KH
+  INNER JOIN chi_tiet_du_dung_dv AS ctsd ON dp.Ma_Dat_Phong = ctsd.Ma_Dat_Phong
+  INNER JOIN dich_vu_di_kem AS dv ON ctsd.Ma_DV = dv.Ma_DV
 WHERE
-  YEAR (DP.Ngay_Dat) IN (2016, 2017)
-  AND P.Gia_Phong > 50000;
+  YEAR(dp.Ngay_Dat) IN (2016, 2017)
+  AND p.Gia_Phong > 50000
