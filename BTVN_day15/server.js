@@ -11,7 +11,7 @@ let tasks = [];
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url);
 
-  if (parsedUrl.pathname === "/todo") {
+  if (parsedUrl.pathname === "/app") {
     if (req.method === "POST") {
       const form = new formidable.IncomingForm();
 
@@ -41,14 +41,14 @@ const server = http.createServer((req, res) => {
         });
 
         res.writeHead(302, {
-          Location: "/todo",
+          Location: "/app",
           "Set-Cookie": `tasks=${JSON.stringify(tasks)}`,
         });
 
         res.end();
       });
     } else {
-      const data = fs.readFileSync("./views/todo.html", "utf8");
+      const data = fs.readFileSync("./views/app.html", "utf8");
       res.writeHead(200, { "Content-Type": "text/html" });
       res.end(data);
     }
