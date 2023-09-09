@@ -461,3 +461,60 @@ SELECT
     *
 FROM
     chi_tiet_du_dung_dv;
+
+--Cau 1
+use database_05_nguyenducthanh;
+
+SELECT
+    DP.Ma_Dat_Phong,
+    DP.Ma_Phong_id,
+    P.Loai_Phong,
+    P.Gia_Phong,
+    KH.Ten_KH,
+    DP.Ngay_Dat,
+    TIME_TO_SEC(TIMEDIFF(DP.Gio_Ket_Thuc, DP.Gio_Bat_Dau)) / (60 * 60) * P.Gia_Phong AS "Tong tien hat",
+    if(
+        SUM(dvdk.Don_Gia * ctsd.So_Luong),
+        SUM(dvdk.Don_Gia * ctsd.So_Luong),
+        0
+    ) AS "Tien su dung dv",
+    TIME_TO_SEC(TIMEDIFF(DP.Gio_Ket_Thuc, DP.Gio_Bat_Dau)) / (60 * 60) * P.Gia_Phong + if(
+        SUM(dvdk.Don_Gia * ctsd.So_Luong),
+        SUM(dvdk.Don_Gia * ctsd.So_Luong),
+        0
+    ) AS "Tong tien"
+FROM
+    dat_phong AS DP
+    JOIN phong AS P ON DP.Ma_Phong_id = P.Ma_Phong
+    JOIN khach_hang AS KH ON DP.Ma_KH_id = KH.Ma_KH
+    LEFT JOIN chi_tiet_du_dung_dv AS ctsd ON DP.Ma_Dat_Phong = ctsd.Ma_Dat_Phong_id
+    LEFT JOIN dich_vu_di_kem AS dvdk ON ctsd.Ma_DV_id = dvdk.Ma_DV
+GROUP BY
+    DP.Ma_Dat_Phong;
+
+--Cau 2 
+use database_05_nguyenducthanh;
+
+SELECT
+    KH.*
+FROM
+    khach_hang AS KH
+    JOIN dat_phong AS DP on KH.Ma_KH = DP.Ma_KH_id
+WHERE
+    KH.Dia_Chi = "Hoa Xuan";
+
+--Cau 3
+use database_05_nguyenducthanh;
+
+SELECT
+    P.*,
+    COUNT (DP.Ma_Phong_id) AS So_Lan_Dat
+FROM
+    phong AS P
+    JOIN dat_phong as DP ON P.Ma_Phong = DP.Ma_Phong_id
+WHERE
+    DP.Trang_Thai_Dat LIKE "Da dat"
+GROUP BY
+    P.Ma_Phong
+HAVING
+    So_Lan_Dat > 2;
