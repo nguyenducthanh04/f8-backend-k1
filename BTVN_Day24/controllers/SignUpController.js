@@ -18,7 +18,7 @@ module.exports = {
     if (created) {
       req.flash("msg", "Tạo tài khoản thành công");
     } else {
-      req.flash("msg", "Tài khoản đã tồn tại! Đăng nhập ngay");
+      req.flash("msg", "Tài khoản đã tồn tại! Hãy đăng nhập");
     }
     res.redirect("/login");
   },
