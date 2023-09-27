@@ -87,7 +87,6 @@ module.exports = {
     });
   },
 
-  //Get Form
   create: async (req, res) => {
     const provinceList = await Province.findAll();
     const msg = req.flash("msg");
@@ -95,7 +94,6 @@ module.exports = {
     res.render("customers/create", { provinceList, msg, errors, validate });
   },
 
-  //Post Create
   store: async (req, res) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -173,7 +171,7 @@ module.exports = {
       where: {
         id: id,
       },
-      force: false, //Xóa vĩnh viễn
+      force: false,
     });
     req.flash("msg", "Đã xóa thành công");
     res.redirect("/customers");
