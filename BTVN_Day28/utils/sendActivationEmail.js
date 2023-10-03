@@ -18,12 +18,12 @@ module.exports = {
     });
     const activationLink = `http://127.0.0.1:3000/signUp/active/${token}`;
 
-    const mailOption = {
+    const mailEvent = {
       from: `"hello" <${MAIL_FROM}>`,
       to: `${email}`,
       subject: "Hello ✔",
       text: `Vui lòng kích hoạt tài khoản tại đây ${activationLink}`,
     };
-    await transporter.sendMail(mailOption);
+    await transporter.sendMail(mailEvent);
   },
 };
