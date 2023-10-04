@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh gửi mail</title>
+  </head>
+  <body>
+    <h2>Thông tin gửi mail</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="5%">STT</th>
+          <th>Email</th>
+          <th>Tiêu đề</th>
+          <th>Nội dung</th>
+          <th>Thời gian gửi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% emailList.forEach((email, index) => { %>
+        <tr>
+          <td><%= index+1 %></td>
+          <td><%= email.email %></td>
+          <td><%= email.title %></td>
+          <td><a href="/content/<%= email.id %>">Xem chi tiết</a></td>
+          <td><%= moment(email.createdAt).format('DD/MM/YYYY hh:mm:ss') %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
