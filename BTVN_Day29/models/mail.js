@@ -16,6 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       id: {
         type: DataTypes.TINYINT,
         primaryKey: true,
+        unique: true,
       },
       email: DataTypes.STRING(50),
       title: DataTypes.STRING(100),

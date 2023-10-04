@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    .p1 {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
   <body>
     <div class="email-container">
-      <h1>Email gửi đến:</h1>
-      <p><%= emailAddress %></p>
-
-      <h2>Tiêu đề:</h2>
-      <p><%= emailTitle %></p>
-
-      <h2>Nội dung:</h2>
-      <p><%= emailContent %></p>
+      <p class="p1">
+        Đến từ:
+        <p><%= email %></p>
+      </p>
+      <p class="p1">
+        Tiêu đề:
+        <p><%= title %></p>
+      </p>
+      <p class="p1">
+        Nội dung:
+        <p><%= content %></p>
+      </p>
     </div>
   </body>
 </html>

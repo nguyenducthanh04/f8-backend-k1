@@ -26,24 +26,25 @@ module.exports = {
       html: content, // html body
     });
     console.log(info);
-    res.redirect("/");
+    res.redirect("/send/layout");
     // res.send("hello");
   },
   readEmail: async (req, res) => {
     const emailUser = await model.Mail;
     const emailList = await emailUser.findAll();
     // console.log(emailList);
+    console.log(emailUser);
     res.render("mail/getEmail", { emailList, emailUser, moment });
   },
   contentMail: async (req, res) => {
-    const { id } = req.params;
-    console.log(id);
     const emailUser = await model.Mail;
-    const emailCount = await emailUser.findByPk(id);
-    console.log(emailCount);
-    const emailAdd = emailCount.dataValues.email;
-    const emailTitle = emailCount.dataValues.title;
-    const emailContent = emailCount.dataValues.content;
-    res.render("mail/content", { emailAdd, emailTitle, emailContent });
+    const { id } = req.params;
+    const emailContent = await emailUser.findOne({
+      where: {
+        id: id,
+      },
+    });
+    const { email, title, content } = emailContent;
+    res.render("mail/content", { email, title, content });
   },
 };
