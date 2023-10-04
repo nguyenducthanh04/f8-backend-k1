@@ -17,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TINYINT,
         primaryKey: true,
         unique: true,
+        autoIncrement: true,
       },
       email: DataTypes.STRING(50),
       title: DataTypes.STRING(100),
