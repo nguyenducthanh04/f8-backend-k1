@@ -58,7 +58,7 @@ module.exports = {
   },
   handleFoget: async (req, res) => {
     const { email } = req.body;
-    const token = jwt.sign(req.body, secret, { expiresIn: "900s" });
+    const token = jwt.sign(req.body, secret, { expiresIn: "15m" });
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: process.env.MAIL_PORT,
