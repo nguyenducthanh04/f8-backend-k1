@@ -16,6 +16,7 @@ const authRouter = require("./routes/auth");
 const localPassport = require("./passports/localPassport");
 const googlePassport = require("./passports/googlePassport");
 const facebookPassport = require("./passports/facebookPassport");
+const githubPassport = require("./passports/githubPassport");
 // console.log(facebookPassport);
 var app = express();
 app.use(
@@ -32,6 +33,7 @@ app.use(expressLayouts);
 passport.use("local", localPassport);
 passport.use("google", googlePassport);
 passport.use("facebook", facebookPassport);
+passport.use("github", githubPassport);
 passport.serializeUser(function (user, done) {
   done(null, user.id);
 });

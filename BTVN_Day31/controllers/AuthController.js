@@ -130,4 +130,7 @@ module.exports = {
   loginFacebook: (req, res) => {
     res.send("Facebook");
   },
+  loginGithub: (req, res) => {
+    res.send("Github");
+  },
 };
