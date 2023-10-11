@@ -7,7 +7,7 @@ module.exports = new GitHubStrategy(
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
     callbackURL: process.env.GITHUB_CALLBACK_URL,
-    profileFields: ["id", "username", "email"],
+    scope: ["username", "email"],
   },
   async (accessToken, refreshToken, profile, cb) => {
     const { provider, displayName, emails } = profile;
