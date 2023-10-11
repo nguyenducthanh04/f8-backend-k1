@@ -13,6 +13,8 @@ module.exports = new FacebookStrategy(
   },
   async (accessToken, refreshToken, profile, cb) => {
     const { provider, displayName, emails } = profile;
+    // const [{ value: email }] = emails;
+
     let providerDetail = await Provider.findOne({
       where: {
         name: provider,
@@ -27,12 +29,14 @@ module.exports = new FacebookStrategy(
     providerId = providerDetail.id;
     let user = await User.findOne({
       where: {
+        // email,
         provider_id: providerId,
       },
     });
     if (!user) {
       user = await User.create({
         name: displayName,
+        // email,
         provider_id: providerId,
       });
     }
