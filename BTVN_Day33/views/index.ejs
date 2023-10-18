@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Rút gọn Url</h1>
+    <a href="/auth/logout">Đăng xuất</a>
+    <form action="" method="POST" class="my-4 form-inline">
+      <label for="fullUrl" class="sr-only">Url</label>
+      <input required placeholder="Url" type="url" name="urls" id="urls" class="form-control col mr-2">
+      <button class="btn btn-success" type="submit">Rút gọn</button>
+    </form>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Url short</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% links.forEach(({url, shortUrl}) => { %>
+      <tr>
+        <td><%= url %></td>
+        <td><%= shortUrl %></td>
+      </tr>
+  
+      <% }) %>
+    </tbody>
+
+</body>
+</html>
