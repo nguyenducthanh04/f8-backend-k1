@@ -1,19 +1,20 @@
 var express = require("express");
 var router = express.Router();
 const PerMiddleware = require("../middlewares/PerMiddleware");
-
+const roleUser = require("../utils/roleUser");
 /* GET home page. */
 router.get(
   "/",
   async function (req, res, next) {
     const permissions = await PerMiddleware(req);
     if (!permissions?.includes("users.read")) {
-      res.render("index", { layout: "layout_permission" });
+      res.render("index");
       return;
     }
     next();
   },
-  function (req, res, next) {
+  async function (req, res, next) {
+    // const userRoleName = await roleUser(req, res);
     res.render("index");
   }
 );

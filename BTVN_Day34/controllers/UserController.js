@@ -2,11 +2,13 @@ const model = require("../models/index");
 const User = model.User;
 const Role = model.Role;
 const { isRole } = require("../utils/permisson");
-
+const roleName = require("../utils/roleUser");
 module.exports = {
   index: async (req, res) => {
     const users = await User.findAll();
-    res.render("users/index", { users });
+    const userRoleName = await roleName(req, res);
+    console.log(userRoleName);
+    res.render("users/index", { users, userRoleName });
   },
 
   permission: async (req, res) => {
@@ -20,9 +22,9 @@ module.exports = {
         model: Role,
       },
     });
-
+    const userRoleName = await roleName(req, res);
     //Enhanced Literal Object
-    res.render("users/permission", { roles, user, isRole });
+    res.render("users/permission", { roles, user, isRole, userRoleName });
   },
 
   handlePermission: async (req, res) => {
@@ -43,8 +45,8 @@ module.exports = {
             where: {
               id: roleId,
             },
-          }),
-        ),
+          })
+        )
       );
 
       await user.setRoles(roleUpdate);

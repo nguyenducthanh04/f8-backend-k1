@@ -10,6 +10,7 @@ const session = require("express-session");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var rolesRouter = require("./routes/roles");
+// var layoutsRouter = require("./routes/layout");
 var authRouter = require("./routes/auth");
 const localPassport = require("./passports/localPassport");
 const AuthMiddleware = require("./middlewares/AuthMiddleware");
@@ -23,7 +24,7 @@ app.use(
     secret: "f8",
     resave: true,
     saveUninitialized: false,
-  }),
+  })
 );
 
 app.use(passport.initialize());
@@ -58,7 +59,7 @@ app.use(AuthMiddleware);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/roles", rolesRouter);
-
+// app.use("/layouts", layoutsRouter);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

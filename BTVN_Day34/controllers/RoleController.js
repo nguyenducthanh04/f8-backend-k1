@@ -2,16 +2,18 @@ const permissionUtil = require("../utils/permisson");
 const model = require("../models/index");
 const Role = model.Role;
 const Permission = model.Permission;
+const roleName = require("../utils/roleUser");
 
 module.exports = {
   index: async (req, res) => {
     const roles = await Role.findAll();
-
-    res.render("roles/index", { roles });
+    const userRoleName = await roleName(req, res);
+    res.render("roles/index", { roles, userRoleName });
   },
 
   add: async (req, res) => {
-    res.render("roles/add");
+    const userRoleName = await roleName(req, res);
+    res.render("roles/add", { userRoleName });
   },
 
   handleAdd: async (req, res) => {
@@ -61,8 +63,14 @@ module.exports = {
     const { Permissions: permissions } = role;
 
     console.log(permissionUtil.get(permissions, "users.read"));
-
-    res.render("roles/edit", { role, roles, permissions, permissionUtil });
+    const userRoleName = await roleName(req, res);
+    res.render("roles/edit", {
+      role,
+      roles,
+      permissions,
+      permissionUtil,
+      userRoleName,
+    });
   },
 
   handleEdit: async (req, res) => {
@@ -79,7 +87,7 @@ module.exports = {
         where: {
           id,
         },
-      },
+      }
     );
 
     const role = await Role.findOne({
@@ -112,7 +120,7 @@ module.exports = {
       });
 
       const permissonsUpdate = await Promise.all(
-        dataPermission.map((item) => Permission.findOne({ where: item })),
+        dataPermission.map((item) => Permission.findOne({ where: item }))
       );
 
       role.setPermissions(permissonsUpdate);
