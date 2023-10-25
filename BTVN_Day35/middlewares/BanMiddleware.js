@@ -6,10 +6,12 @@ module.exports = {
   banUser: async (req, res, next) => {
     const { id } = req.params;
     const user = await User.findOne({
-      id,
+      where: {
+        id,
+      },
     });
     const banned = await Ban.findAll();
-    const bannedUserCheck = banned.find((ban) => ban.email === user.email);
+    const bannedUserCheck = banned.find((ban) => ban.email === user.email); //Trả về user có email trùng với email bị BAN
     if (bannedUserCheck) {
       const response = {
         status: "error",

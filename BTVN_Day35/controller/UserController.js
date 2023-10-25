@@ -121,7 +121,11 @@ module.exports = {
       },
     });
     if (!user) {
-      res.status(404).json("error: NOT FOUND!");
+      const response = {
+        status: "error",
+        errorText: "NOT FOUND!",
+      };
+      res.status(404).json(response);
     }
     await User.update(
       {
@@ -150,15 +154,19 @@ module.exports = {
       },
     });
     if (!user) {
-      res.status(404).json("error: NOT FOUND!");
+      const response = {
+        status: "error",
+        errorText: "NOT FOUND!",
+      };
+      res.status(404).json(response);
     }
     await user.destroy({
       where: {
         id,
       },
     });
-    res.json({
-      status: "success",
+    res.status(200).json({
+      success: "Đã xóa thành công!",
     });
   },
   patch: async (req, res) => {
@@ -170,7 +178,11 @@ module.exports = {
       },
     });
     if (!user) {
-      res.status(404).json("error: NOT FOUND!");
+      const response = {
+        status: "error",
+        errorText: "NOT FOUND!",
+      };
+      res.status(404).json(response);
     }
     if (name) {
       await User.update(
