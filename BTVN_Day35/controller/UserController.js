@@ -141,7 +141,7 @@ module.exports = {
         id,
       },
     });
-    res.json({
+    res.status(200).json({
       status: "success",
       data: edited,
     });
@@ -202,7 +202,7 @@ module.exports = {
         id,
       },
     });
-    res.json({
+    res.status(200).json({
       status: "success",
       data: updateUser,
     });
