@@ -22,3 +22,5 @@ module.exports = {
     next();
   },
 };
+
+//BAN 1 số api, những api không bị BAN hoạt động bình thường
