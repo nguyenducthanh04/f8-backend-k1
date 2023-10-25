@@ -121,7 +121,7 @@ module.exports = {
       },
     });
     if (!user) {
-      res.status(401).json("error: NOT FOUND!");
+      res.status(404).json("error: NOT FOUND!");
     }
     await User.update(
       {
