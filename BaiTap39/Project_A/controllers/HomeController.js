@@ -4,7 +4,7 @@ class HomeController {
     const token = jwt.sign({ data: req.user }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIRED,
     });
-    res.cookie("token", token);
+    res.cookie("token_user", token);
     res.redirect(`http://127.0.0.1:4000/`);
   }
 }
