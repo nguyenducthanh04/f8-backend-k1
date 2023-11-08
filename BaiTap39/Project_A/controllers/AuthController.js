@@ -10,6 +10,7 @@ class AuthController {
       if (err) {
         return next(err);
       }
+      res.clearCookie("token"); //Xóa cookie khi logout
       res.redirect("/auth/login");
     });
   }
