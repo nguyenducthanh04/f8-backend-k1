@@ -17,7 +17,7 @@ class HomeController {
         }
       });
     }
-    res.render("index", { user_Id });
+    res.render("users/index", { user_Id });
   }
 }
 module.exports = new HomeController();
