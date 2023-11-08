@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 class HomeController {
   async index(req, res) {
-    const token = req.cookies.token;
+    const token = req.cookies.token_user;
     console.log(`Token: ${token}`);
     let userId = null;
     if (token) {
