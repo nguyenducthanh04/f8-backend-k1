@@ -3,7 +3,7 @@ class HomeController {
   async index(req, res) {
     const token = req.cookies.token_user;
     console.log(`Token: ${token}`);
-    let userId = null;
+    let user_Id = null;
     if (token) {
       jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
         // console.log(token);
@@ -12,12 +12,12 @@ class HomeController {
         if (err) {
           console.log(`Lỗi`);
         } else {
-          userId = decoded.data;
+          user_Id = decoded.data;
           console.log(`userId: ${userId}`);
         }
       });
     }
-    res.render("index", { userId });
+    res.render("index", { user_Id });
   }
 }
 module.exports = new HomeController();
