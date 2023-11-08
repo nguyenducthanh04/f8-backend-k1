@@ -13,7 +13,7 @@ class HomeController {
           console.log(`Lỗi`);
         } else {
           user_Id = decoded.data;
-          console.log(`userId: ${userId}`);
+          console.log(`userId: ${user_Id}`);
         }
       });
     }
